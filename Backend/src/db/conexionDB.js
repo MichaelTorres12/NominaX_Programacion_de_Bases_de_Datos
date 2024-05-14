@@ -4,7 +4,7 @@ En la terminal entran a la carpeta de Backend: PS C:\Users\Michael Torres\Deskto
 y ponen: npm i mssql
 y le dan enter
 */
-import mssql from "mssql";
+const mssql = require("mssql");
 
 //Aqui cambian los datos por los de sus credenciales
 const connectionSettings = {
@@ -19,13 +19,13 @@ const connectionSettings = {
 }
 
 //Esta es una promesa, debido a que la conexión lleva su tiempo le ponemos que es asincrona para que espere el retorno
-export async function getConnection(){
-    try{
+async function getConnection() {
+    try {
         return await mssql.connect(connectionSettings);
-    }
-    catch(error){
+    } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export {mssql};
+module.exports = { getConnection, mssql };
