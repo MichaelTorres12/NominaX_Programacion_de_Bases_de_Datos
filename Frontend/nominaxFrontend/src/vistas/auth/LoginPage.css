@@ -1,0 +1,118 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffffff;
+    background: -webkit-linear-gradient(127deg, #ffffff 0%, #cfdef8 100%);
+    background: linear-gradient(127deg, #ffffff 0%, #cfdef8 100%);
+    position: relative;
+}
+
+.decorative-shape {
+    position: absolute;
+}
+
+.shape-top-left {
+    bottom: 0;
+    left: -10px;
+    width: fit-content;
+    height: 400px;
+}
+
+.shape-bottom-right {
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: 400px;
+}
+
+.decorative-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-container {
+    width: 450px;
+    height: auto;
+    background: rgba(244, 252, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 30px 40px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.nominaxLogo{
+    width: 100px;
+}
+
+.nominaxLogoText{
+    color: blueviolet;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-size: 50px;
+}
+
+.login-container form div {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 25px;
+}
+
+.login-container input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 23px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.login-container button {
+    width: 50%;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: #32cd32;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.login-container button:hover {
+    background-color: #28a745;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
