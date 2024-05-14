@@ -4,6 +4,9 @@ const morgan = require('morgan');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+// Importar las rutas de autenticación
+const rutasAuth = require('./src/api/rutas/rutasAuth.js');
+
 // Cargar variables de entorno
 dotenv.config();
 
@@ -15,6 +18,11 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json()); // para parsear application/json
 app.use(express.urlencoded({ extended: true })); // para parsear application/x-www-form-urlencoded
+
+
+// Usar las rutas de autenticación
+app.use('/api/auth', rutasAuth);
+
 
 // Rutas básicas
 app.get('/', (req, res) => {
