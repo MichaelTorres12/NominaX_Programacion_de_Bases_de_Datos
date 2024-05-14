@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const rutasAuth = require('./src/api/rutas/rutasAuth')
 
 // Cargar variables de entorno
 dotenv.config();
@@ -20,6 +21,10 @@ app.use(express.urlencoded({ extended: true })); // para parsear application/x-w
 app.get('/', (req, res) => {
   res.send('Bienvenido al servidor de NominaX!');
 });
+
+//Usamos la ruta de autenticación
+app.use('/api/auth', rutasAuth);
+
 
 // Definir el puerto y poner el servidor a escuchar
 const PORT = process.env.PORT || 3000;
