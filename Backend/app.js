@@ -5,9 +5,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const rutasAuth = require('./src/api/rutas/rutasAuth')
 
-// Importar las rutas de autenticación
-const rutasAuth = require('./src/api/rutas/rutasAuth.js');
-
 // Cargar variables de entorno
 dotenv.config();
 

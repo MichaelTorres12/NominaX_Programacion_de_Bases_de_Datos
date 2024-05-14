@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 //Importamos el modelo de Usuarios
 const Usuario = require('../../modelos/Usuario.js');
-=======
-const Usuario = require('../../modelos/Usuario');
->>>>>>> 89ccf9956dbf5cb309b99eb93559b703104657a5
 
 exports.login = async (req, res) => {
     const { nombreUsuario, contrasena } = req.body;
