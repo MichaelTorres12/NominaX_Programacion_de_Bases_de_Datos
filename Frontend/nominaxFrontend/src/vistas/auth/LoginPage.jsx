@@ -29,7 +29,7 @@ const LoginPage = () => {
 
             localStorage.setItem('authToken', response.data.token); // Guarda el token de autenticación
             localStorage.setItem('nombreUsuario', nombreUsuario); // Guarda el nombre de usuario
-            localStorage.setItem('contrasena', contrasena); // Guarda la contraseña (no recomendado en producción)
+            localStorage.setItem('contrasena', contrasena); // Guarda la contraseña (Solo para este ejemplo, sino ni madres se hace)
 
             if (response.data.vista === 'admin') {
                 navigate('/admin');
@@ -50,7 +50,7 @@ const LoginPage = () => {
                 <img src={Vector} alt="borde" />
             </div>
             <div className="login-container">
-                <div>
+                <div className='flex flex-col items-center'>
                     <img className='nominaxLogo' src={nominaxLogo} alt='Logo de Nominax'/>
                     <h3 className='nominaxLogoText'>NominaX</h3>
                 </div>

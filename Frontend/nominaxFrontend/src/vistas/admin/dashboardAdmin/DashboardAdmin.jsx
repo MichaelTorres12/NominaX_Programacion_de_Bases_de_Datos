@@ -1,10 +1,14 @@
 
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../../../componentes/layout/Sidebar';
 
 const DashboardAdmin = () => {
     return (
-        <div>
-            <h1>Admin Dashboard</h1>
-            {/* Aquí irán los contenidos del dashboard de administrador */}
+        <div className="dashboard-admin">
+            <Sidebar />
+            <div className="content bg-slate-100 w-full">
+                <Outlet />
+            </div>
         </div>
     );
 };
