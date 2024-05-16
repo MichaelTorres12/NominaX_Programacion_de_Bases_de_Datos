@@ -5,8 +5,6 @@ y ponen: npm i mssql
 y le dan enter
 */
 
-//import mssql from 'mssql'; Esto es para cuando se usa model en el type.
-
 const mssql = require('mssql');
 
 // Aquí cambian los datos por los de sus credenciales
