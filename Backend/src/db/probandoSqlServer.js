@@ -7,16 +7,16 @@ pegar lo siguiente: "type": "module",
 una vez se ha probado, quitarlo y dejarse tal y como se encontró, es por problemas de lectura entre ES y CommonJS
 */
 
-import {getConnection, mssql} from "./conexionDB.js";
+import { getConnection, mssql } from "./conexionDB.js";
 
-//Aqui usamos un pool de conexiones (DIEGO GAY)
-const getEmpleados = async ()=>{
-    try{
+// Aquí usamos un pool de conexiones
+const getEmpleados = async () => {
+    try {
         const pool = await getConnection();
-        const result = await pool.request().query("SELECT ID_Empleado, Nombre, Apellido, Direccion, Email, Fecha_Nacimiento, Fecha_Ingreso, Estado_Civil, Num_Seguridad_Social FROM Empleado")
-        console.table(result.recordset); //Para que muestre los resultados en
-        console.log("Los empleados están enlistados!!\n");
-    }catch(error){
+        const result = await pool.request().query("SELECT ID_Empleado, Nombre, Apellido, Direccion, Email, Fecha_Nacimiento, Fecha_Ingreso, Estado_Civil, Num_Seguridad_Social FROM Empleado");
+        console.table(result.recordset); // Para que muestre los resultados en tabla
+        console.log("¡Los empleados están enlistados!\n");
+    } catch (error) {
         console.error(error);
     }
 }

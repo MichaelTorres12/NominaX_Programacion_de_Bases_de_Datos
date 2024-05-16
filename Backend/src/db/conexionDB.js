@@ -4,7 +4,8 @@ En la terminal entran a la carpeta de Backend: PS C:\Users\Michael Torres\Deskto
 y ponen: npm i mssql
 y le dan enter
 */
-//import mssql from "mssql";
+
+//import mssql from 'mssql'; Esto es para cuando se usa model en el type.
 
 const mssql = require('mssql');
 

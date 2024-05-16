@@ -6,7 +6,7 @@ const DashboardAdmin = () => {
     return (
         <div className="dashboard-admin">
             <Sidebar />
-            <div className="content bg-slate-100 w-full">
+            <div className=" w-full">
                 <Outlet />
             </div>
         </div>
