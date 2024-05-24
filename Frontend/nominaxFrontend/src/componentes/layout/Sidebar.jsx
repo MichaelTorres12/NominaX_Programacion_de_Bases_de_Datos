@@ -16,8 +16,8 @@ const Sidebar = () => {
     const isActive = (path) => location.pathname.includes(path);
 
     return (
-        <div className="sidebar  pt-5 flex flex-col h-screen bg-white">
-            <div className='h-40 w-full mb-6 flex flex-col items-center'>
+        <div className="sidebar w-[550px] pt-5 flex flex-col h-screen">
+            <div className='h-auto w-full mb-1 flex flex-col items-center'>
                 <picture>
                     <img className='nominaxLogo mb-2' src={nominaxLogo} alt='Logo de Nominax'/>
                 </picture>
@@ -27,20 +27,20 @@ const Sidebar = () => {
     
             <hr className='h-[2px] bg-zinc-300 mb-6' />
     
-            <ul className='text-xl gap-7 flex flex-col flex-grow'>
-                <li className={`${isActive('/admin/gestion-empleados') ? 'bg-gray-100 h-12 flex items-center text-blue-700 font-semibold'  : ''} hover:text-blue-700 hover:font-semibold px-5`}>
+            <ul className='text-xl gap-7 flex flex-col flex-grow px-2'>
+                <li className={`${isActive('/admin/gestion-empleados') ? 'bg-blue-50 h-12 flex items-center text-blue-800 font-semibold rounded-2xl'  : ''} hover:text-blue-700  px-5`}>
                     <Link to="/admin/gestion-empleados">Gestión de Empleados</Link>
                 </li>
-                <li className={`${isActive('/admin/estructura-organizativa') ? 'bg-gray-100 h-12 flex items-center text-blue-700 font-semibold' : ''} hover:text-blue-700 px-5`}>
+                <li className={`${isActive('/admin/estructura-organizativa') ? 'bg-blue-50 h-12 flex items-center text-blue-800 font-semibold rounded-2xl' : ''} hover:text-blue-700 px-5`}>
                     <Link to="/admin/estructura-organizativa">Estructura Organizativa</Link>
                 </li>
-                <li className={`${isActive('/admin/control-asistencias') ? 'bg-gray-100 h-12 flex items-center text-blue-700 font-semibold' : ''} hover:text-blue-700 px-5`}>
+                <li className={`${isActive('/admin/control-asistencias') ? 'bg-blue-50 h-12 flex items-center text-blue-800 font-semibold rounded-2xl' : ''} hover:text-blue-700 px-5`}>
                     <Link to="/admin/control-asistencias">Control de Asistencias</Link>
                 </li>
-                <li className={`${isActive('/admin/gestion-nomina') ? 'bg-gray-100 h-12 flex items-center text-blue-700 font-semibold' : ''} hover:text-blue-700 px-5`}>
+                <li className={`${isActive('/admin/gestion-nomina') ? 'bg-blue-50 h-12 flex items-center text-blue-800 font-semibold rounded-2xl' : ''} hover:text-blue-700 px-5`}>
                     <Link to="/admin/gestion-nomina">Gestión de Nómina</Link>
                 </li>
-                <li className={`${isActive('/admin/gestion-beneficios') ? 'bg-gray-100 h-12 flex items-center text-blue-700 font-semibold' : ''} hover:text-blue-700 px-5`}>
+                <li className={`${isActive('/admin/gestion-beneficios') ? 'bg-blue-50 h-12 flex items-center text-blue-800 font-semibold rounded-2xl' : ''} hover:text-blue-700 px-5`}>
                     <Link to="/admin/gestion-beneficios">Gestión de Beneficios</Link>
                 </li>
             </ul>

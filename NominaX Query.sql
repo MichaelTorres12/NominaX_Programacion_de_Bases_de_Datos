@@ -1,14 +1,14 @@
 USE master;
 GO
 
--- Creación de la base de datos NominaX
+-- Creaciï¿½n de la base de datos NominaX
 CREATE DATABASE NominaXDataBase;
 GO
 
 USE NominaXDataBase;
 GO
 
--- Creación de la tabla Empleado
+-- Creaciï¿½n de la tabla Empleado
 CREATE TABLE Empleado (
     ID_Empleado INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -22,7 +22,7 @@ CREATE TABLE Empleado (
 );
 GO
 
--- Creación de la tabla Departamento
+-- Creaciï¿½n de la tabla Departamento
 CREATE TABLE Departamento (
     ID_Departamento INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -31,7 +31,7 @@ CREATE TABLE Departamento (
 );
 GO
 
--- Creación de la tabla Equipo
+-- Creaciï¿½n de la tabla Equipo
 CREATE TABLE Equipo (
     ID_Equipo INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -40,7 +40,7 @@ CREATE TABLE Equipo (
 );
 GO
 
--- Creación de la tabla EmpleadoEquipo
+-- Creaciï¿½n de la tabla EmpleadoEquipo
 CREATE TABLE EmpleadoEquipo (
     ID_Empleado INT,
     ID_Equipo INT,
@@ -51,7 +51,7 @@ CREATE TABLE EmpleadoEquipo (
 );
 GO
 
--- Creación de la tabla PerfilProfesional
+-- Creaciï¿½n de la tabla PerfilProfesional
 CREATE TABLE PerfilProfesional (
     ID_Perfil INT PRIMARY KEY IDENTITY,
     ID_Empleado INT FOREIGN KEY REFERENCES Empleado(ID_Empleado),
@@ -62,7 +62,7 @@ CREATE TABLE PerfilProfesional (
 );
 GO
 
--- Creación de la tabla TelefonoEmpleado
+-- Creaciï¿½n de la tabla TelefonoEmpleado
 CREATE TABLE TelefonoEmpleado (
     ID_TelefonoEmpleado INT PRIMARY KEY IDENTITY,
     ID_Empleado INT FOREIGN KEY REFERENCES Empleado(ID_Empleado),
@@ -70,7 +70,7 @@ CREATE TABLE TelefonoEmpleado (
 );
 GO
 
--- Creación de la tabla Nómina
+-- Creaciï¿½n de la tabla Nï¿½mina
 CREATE TABLE Nomina (
     ID_Nomina INT PRIMARY KEY IDENTITY,
     ID_Empleado INT FOREIGN KEY REFERENCES Empleado(ID_Empleado),
@@ -81,7 +81,7 @@ CREATE TABLE Nomina (
 );
 GO
 
--- Creación de la tabla DetalleNomina
+-- Creaciï¿½n de la tabla DetalleNomina
 CREATE TABLE DetalleNomina (
     ID_DetalleNomina INT PRIMARY KEY IDENTITY,
     ID_Nomina INT FOREIGN KEY REFERENCES Nomina(ID_Nomina),
@@ -90,7 +90,7 @@ CREATE TABLE DetalleNomina (
 );
 GO
 
--- Creación de la tabla RegistroAsistencia
+-- Creaciï¿½n de la tabla RegistroAsistencia
 CREATE TABLE RegistroAsistencia (
     ID_Asistencia INT PRIMARY KEY IDENTITY,
     ID_Empleado INT FOREIGN KEY REFERENCES Empleado(ID_Empleado),
@@ -101,7 +101,7 @@ CREATE TABLE RegistroAsistencia (
 );
 GO
 
--- Creación de la tabla IncidenciaAsistencia
+-- Creaciï¿½n de la tabla IncidenciaAsistencia
 CREATE TABLE IncidenciaAsistencia (
     ID_Incidencia INT PRIMARY KEY IDENTITY,
     ID_Asistencia INT FOREIGN KEY REFERENCES RegistroAsistencia(ID_Asistencia),
@@ -111,7 +111,7 @@ CREATE TABLE IncidenciaAsistencia (
 );
 GO
 
--- Creación de la tabla Justificacion
+-- Creaciï¿½n de la tabla Justificacion
 CREATE TABLE Justificacion (
     ID_Justificacion INT PRIMARY KEY IDENTITY,
     ID_Incidencia INT FOREIGN KEY REFERENCES IncidenciaAsistencia(ID_Incidencia),
@@ -121,7 +121,7 @@ CREATE TABLE Justificacion (
 );
 GO
 
--- Creación de la tabla Beneficio
+-- Creaciï¿½n de la tabla Beneficio
 CREATE TABLE Beneficio (
     ID_Beneficio INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -130,7 +130,7 @@ CREATE TABLE Beneficio (
 );
 GO
 
--- Creación de la tabla AsignacionBeneficio
+-- Creaciï¿½n de la tabla AsignacionBeneficio
 CREATE TABLE AsignacionBeneficio (
     ID_Asignacion INT PRIMARY KEY IDENTITY,
     ID_Empleado INT FOREIGN KEY REFERENCES Empleado(ID_Empleado),
@@ -141,7 +141,7 @@ CREATE TABLE AsignacionBeneficio (
 );
 GO
 
--- Creación de la tabla Rol
+-- Creaciï¿½n de la tabla Rol
 CREATE TABLE Rol (
     ID_Rol INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -149,7 +149,7 @@ CREATE TABLE Rol (
 );
 GO
 
--- Creación de la tabla Usuario
+-- Creaciï¿½n de la tabla Usuario
 CREATE TABLE Usuario (
     ID_Usuario INT PRIMARY KEY IDENTITY,
     NombreUsuario NVARCHAR(100),
@@ -166,35 +166,35 @@ GO
 
 -- Insertando datos en la tabla Departamento
 INSERT INTO Departamento (Nombre, Descripcion, Ubicacion) VALUES
-('Recursos Humanos', 'Maneja las necesidades y políticas de personal.', 'Edificio Principal'),
-('Tecnología de la Información', 'Soporte y desarrollo de sistemas informáticos.', 'Edificio de TI'),
-('Finanzas', 'Gestión de las finanzas corporativas.', 'Edificio Administrativo'),
-('Marketing', 'Promoción y estrategia de mercado.', 'Edificio Creativo'),
-('Ventas', 'Gestión de ventas y relaciones con clientes.', 'Edificio Comercial');
+('Recursos Humanos', 'Maneja las necesidades y polï¿½ticas de personal.', 'Edificio Principal'),
+('Tecnologï¿½a de la Informaciï¿½n', 'Soporte y desarrollo de sistemas informï¿½ticos.', 'Edificio de TI'),
+('Finanzas', 'Gestiï¿½n de las finanzas corporativas.', 'Edificio Administrativo'),
+('Marketing', 'Promociï¿½n y estrategia de mercado.', 'Edificio Creativo'),
+('Ventas', 'Gestiï¿½n de ventas y relaciones con clientes.', 'Edificio Comercial');
 GO
 
 -- Insertando datos en la tabla Equipo
 INSERT INTO Equipo (Nombre, Descripcion, ID_Departamento) VALUES
 ('Equipo de Reclutamiento', 'Encargado de atraer y seleccionar nuevos talentos.', 1),
-('Soporte Técnico', 'Proporciona soporte técnico a la empresa.', 2),
+('Soporte Tï¿½cnico', 'Proporciona soporte tï¿½cnico a la empresa.', 2),
 ('Contabilidad', 'Encargados de la contabilidad y finanzas.', 3),
-('Social Media', 'Maneja las redes sociales y la presencia en línea.', 4),
-('Ventas Internacionales', 'Gestiona las ventas fuera del país.', 5);
+('Social Media', 'Maneja las redes sociales y la presencia en lï¿½nea.', 4),
+('Ventas Internacionales', 'Gestiona las ventas fuera del paï¿½s.', 5);
 GO
 
 -- Insertando datos en la tabla Empleado
 INSERT INTO Empleado (Nombre, Apellido, Direccion, Email, Fecha_Nacimiento, Fecha_Ingreso, Estado_Civil, Num_Seguridad_Social) VALUES
-('Juan', 'Pérez', 'Calle Falsa 123', 'juan.perez@example.com', '1985-06-15', '2010-04-01', 'Casado', '123-45-6789'),
-('María', 'López', 'Avenida Siempre Viva 321', 'maria.lopez@example.com', '1990-09-25', '2015-08-23', 'Soltera', '987-65-4321'),
-('Carlos', 'Gómez', 'Diagonal 456', 'carlos.gomez@example.com', '1975-12-03', '2005-05-17', 'Casado', '456-78-9123'),
-('Ana', 'Martín', 'Paseo de la Reforma 789', 'ana.martin@example.com', '1988-03-22', '2013-03-15', 'Casada', '321-54-6789'),
-('Pedro', 'Núñez', 'Ruta 27 654', 'pedro.nunez@example.com', '1980-11-11', '2000-01-01', 'Divorciado', '654-32-1987');
+('Juan', 'Pï¿½rez', 'Calle Falsa 123', 'juan.perez@example.com', '1985-06-15', '2010-04-01', 'Casado', '123-45-6789'),
+('Marï¿½a', 'Lï¿½pez', 'Avenida Siempre Viva 321', 'maria.lopez@example.com', '1990-09-25', '2015-08-23', 'Soltera', '987-65-4321'),
+('Carlos', 'Gï¿½mez', 'Diagonal 456', 'carlos.gomez@example.com', '1975-12-03', '2005-05-17', 'Casado', '456-78-9123'),
+('Ana', 'Martï¿½n', 'Paseo de la Reforma 789', 'ana.martin@example.com', '1988-03-22', '2013-03-15', 'Casada', '321-54-6789'),
+('Pedro', 'Nï¿½ï¿½ez', 'Ruta 27 654', 'pedro.nunez@example.com', '1980-11-11', '2000-01-01', 'Divorciado', '654-32-1987');
 GO
 
 -- Insertando datos en la tabla EmpleadoEquipo
 INSERT INTO EmpleadoEquipo (ID_Empleado, ID_Equipo, Rol) VALUES
 (1, 1, 'Gerente de Reclutamiento'),
-(2, 2, 'Técnico Senior'),
+(2, 2, 'Tï¿½cnico Senior'),
 (3, 3, 'Contador'),
 (4, 4, 'Especialista en Redes Sociales'),
 (5, 5, 'Director de Ventas Internacionales');
@@ -202,10 +202,10 @@ GO
 
 -- Insertando datos en la tabla PerfilProfesional
 INSERT INTO PerfilProfesional (ID_Empleado, Titulo_Puesto, Descripcion_Puesto, Fecha_Inicio, Fecha_Fin) VALUES
-(1, 'Gerente de RH', 'Gestión del departamento de recursos humanos.', '2010-04-01', NULL),
+(1, 'Gerente de RH', 'Gestiï¿½n del departamento de recursos humanos.', '2010-04-01', NULL),
 (2, 'Ingeniero de Sistemas', 'Desarrollo y mantenimiento de software.', '2015-08-23', NULL),
-(3, 'Contador Principal', 'Supervisión de las operaciones financieras.', '2005-05-17', NULL),
-(4, 'Community Manager', 'Gestión de las redes sociales y comunicaciones online.', '2013-03-15', NULL),
+(3, 'Contador Principal', 'Supervisiï¿½n de las operaciones financieras.', '2005-05-17', NULL),
+(4, 'Community Manager', 'Gestiï¿½n de las redes sociales y comunicaciones online.', '2013-03-15', NULL),
 (5, 'Director de Ventas', 'Liderazgo del equipo de ventas internacionales.', '2000-01-01', NULL);
 GO
 
@@ -220,11 +220,11 @@ GO
 
 -- Insertando datos en la tabla Beneficio
 INSERT INTO Beneficio (Nombre, Descripcion, Tipo_Beneficio) VALUES
-('Seguro de Salud', 'Cobertura médica completa.', 'Salud'),
+('Seguro de Salud', 'Cobertura mï¿½dica completa.', 'Salud'),
 ('Fondo de Pensiones', 'Plan de pensiones para el retiro.', 'Retiro'),
 ('Bonos de Productividad', 'Bonos anuales basados en el rendimiento.', 'Monetario'),
 ('Gimnasio', 'Acceso a gimnasio corporativo.', 'Wellness'),
-('Capacitación', 'Cursos y capacitaciones pagados por la empresa.', 'Educación');
+('Capacitaciï¿½n', 'Cursos y capacitaciones pagados por la empresa.', 'Educaciï¿½n');
 GO
 
 -- Insertando datos en la tabla AsignacionBeneficio
@@ -236,7 +236,7 @@ INSERT INTO AsignacionBeneficio (ID_Empleado, ID_Beneficio, Estado, Fecha_Inicio
 (5, 5, 'Activo', '2020-01-01', NULL);
 GO
 
--- Insertando datos en la tabla Nómina
+-- Insertando datos en la tabla Nï¿½mina
 INSERT INTO Nomina (ID_Empleado, Periodo_Pago, Total_Bruto, Deducciones, Fecha_Pago) VALUES
 (1, '2023-01', 3000.00, 450.00, '2023-01-31'),
 (2, '2023-01', 4000.00, 600.00, '2023-01-31'),
@@ -265,36 +265,36 @@ GO
 
 -- Insertando datos en la tabla IncidenciaAsistencia
 INSERT INTO IncidenciaAsistencia (ID_Asistencia, Tipo_Incidencia, Descripcion, Estado) VALUES
-(1, 'Tardanza', 'Llegada tarde por tráfico', 'Aprobado'),
-(2, 'Ausencia', 'Ausencia justificada por médico', 'Pendiente'),
+(1, 'Tardanza', 'Llegada tarde por trï¿½fico', 'Aprobado'),
+(2, 'Ausencia', 'Ausencia justificada por mï¿½dico', 'Pendiente'),
 (3, 'Ausencia', 'Ausencia sin justificar', 'Denegado'),
 (4, 'Tardanza', 'Retraso por falla de transporte', 'Aprobado'),
-(5, 'Ausencia', 'Día personal', 'Aprobado');
+(5, 'Ausencia', 'Dï¿½a personal', 'Aprobado');
 GO
 
 -- Insertando datos en la tabla Justificacion
 INSERT INTO Justificacion (ID_Incidencia, Descripcion, Documento_Adjunto, Estado_Aprobacion) VALUES
-(1, 'Justificación por tráfico con reporte de tráfico adjunto', NULL, 'Aprobado'),
-(2, 'Justificación médica con certificado adjunto', NULL, 'En revisión'),
+(1, 'Justificaciï¿½n por trï¿½fico con reporte de trï¿½fico adjunto', NULL, 'Aprobado'),
+(2, 'Justificaciï¿½n mï¿½dica con certificado adjunto', NULL, 'En revisiï¿½n'),
 (3, 'Sin documento justificativo', NULL, 'Denegado'),
-(4, 'Documento de falla de transporte público adjunto', NULL, 'Aprobado'),
-(5, 'Solicitud previa de día personal', NULL, 'Aprobado');
+(4, 'Documento de falla de transporte pï¿½blico adjunto', NULL, 'Aprobado'),
+(5, 'Solicitud previa de dï¿½a personal', NULL, 'Aprobado');
 GO
 
 -- Insertando roles en la tabla Rol
 INSERT INTO Rol (Nombre, Descripcion) VALUES
-('Administrador', 'Acceso completo a todas las funciones de administración y configuración.'),
-('Empleado', 'Acceso limitado a funciones específicas de empleados como marcar asistencia y presentar justificaciones.');
+('Administrador', 'Acceso completo a todas las funciones de administraciï¿½n y configuraciï¿½n.'),
+('Empleado', 'Acceso limitado a funciones especï¿½ficas de empleados como marcar asistencia y presentar justificaciones.');
 GO
 
--- Insertando usuarios y sus roles respectivos de admin o empleado
-INSERT INTO Usuario (NombreUsuario, Contrasena, ID_Empleado, ID_Rol) VALUES
-('adminRH', 'password123', 1, 1),  -- Usuario administrador para el empleado con ID 1
-('empleado1', 'password123', 2, 2),  -- Usuario empleado para el empleado con ID 2
-('empleado2', 'password123', 3, 2),  -- Usuario empleado para el empleado con ID 3
-('adminFinanzas', 'password123', 4, 1),  -- Otro usuario administrador para el empleado con ID 4
-('empleado3', 'password123', 5, 2);  -- Usuario empleado para el empleado con ID 5
-GO
+    -- Insertando usuarios y sus roles respectivos de admin o empleado
+    INSERT INTO Usuario (NombreUsuario, Contrasena, ID_Empleado, ID_Rol) VALUES
+    ('adminRH', 'password123', 1, 1),  -- Usuario administrador para el empleado con ID 1
+    ('empleado1', 'password123', 2, 2),  -- Usuario empleado para el empleado con ID 2
+    ('empleado2', 'password123', 3, 2),  -- Usuario empleado para el empleado con ID 3
+    ('adminFinanzas', 'password123', 4, 1),  -- Otro usuario administrador para el empleado con ID 4
+    ('empleado3', 'password123', 5, 2);  -- Usuario empleado para el empleado con ID 5
+    GO
 
 
 ------------------------------------------------------------------------------------------------
@@ -353,7 +353,7 @@ GO
 -- FUNCIONES AVANZADAS --
 
 -- CONSULTAS MULTIPLES:
---Consulta para obtener el total pagado en nóminas por departamento en un periodo específico.
+--Consulta para obtener el total pagado en nï¿½minas por departamento en un periodo especï¿½fico.
 SELECT d.Nombre, SUM(n.Total_Bruto) AS TotalPagado
 FROM Departamento d
 JOIN Equipo e ON d.ID_Departamento = e.ID_Departamento
@@ -363,7 +363,7 @@ JOIN Nomina n ON emp.ID_Empleado = n.ID_Empleado
 WHERE n.Fecha_Pago BETWEEN '2023-01-01' AND '2023-01-31'
 GROUP BY d.Nombre;
 
---Consulta para obtener información detallada de los empleados y sus roles en los equipos
+--Consulta para obtener informaciï¿½n detallada de los empleados y sus roles en los equipos
 SELECT emp.Nombre, emp.Apellido, emp.Email, e.Nombre AS NombreEquipo, ee.Rol
 FROM Empleado emp
 JOIN EmpleadoEquipo ee ON emp.ID_Empleado = ee.ID_Empleado
@@ -376,7 +376,7 @@ JOIN AsignacionBeneficio ab ON emp.ID_Empleado = ab.ID_Empleado
 JOIN Beneficio b ON ab.ID_Beneficio = b.ID_Beneficio;
 
 -- PROCEDIMIENTOS ALMACENADOS.
--- Procedimiento para insertar un nuevo empleado y asignarlo a un equipo automáticamente.
+-- Procedimiento para insertar un nuevo empleado y asignarlo a un equipo automï¿½ticamente.
 CREATE PROCEDURE InsertarEmpleado
     @Nombre NVARCHAR(100),
     @Apellido NVARCHAR(100),
@@ -401,7 +401,7 @@ BEGIN
 END;
 GO
 
--- Procedimiento para actualizar el estado de una asignación de beneficio.
+-- Procedimiento para actualizar el estado de una asignaciï¿½n de beneficio.
 CREATE PROCEDURE ActualizarEstadoBeneficio
     @ID_Asignacion INT,
     @NuevoEstado NVARCHAR(50)
@@ -427,7 +427,7 @@ END;
 GO
 
 -- TRIGGERS.
--- Disparador para actualizar el estado de la justificación al cambiar el estado de la incidencia
+-- Disparador para actualizar el estado de la justificaciï¿½n al cambiar el estado de la incidencia
 CREATE TRIGGER ActualizarEstadoJustificacion
 ON IncidenciaAsistencia
 AFTER UPDATE
@@ -443,7 +443,7 @@ BEGIN
 END;
 GO
 
--- Disparador para registrar automáticamente la fecha de fin de un perfil profesional al iniciar uno nuevo
+-- Disparador para registrar automï¿½ticamente la fecha de fin de un perfil profesional al iniciar uno nuevo
 CREATE TRIGGER RegistrarFinPerfilProfesional
 ON PerfilProfesional
 AFTER INSERT
@@ -479,14 +479,14 @@ JOIN Equipo e ON ee.ID_Equipo = e.ID_Equipo
 JOIN Departamento d ON e.ID_Departamento = d.ID_Departamento;
 GO
 
--- Vista para detalles de nómina y empleado.
+-- Vista para detalles de nï¿½mina y empleado.
 CREATE VIEW VistaDetallesNominaEmpleado AS
 SELECT emp.Nombre, emp.Apellido, n.Periodo_Pago, n.Total_Bruto, n.Deducciones, n.Fecha_Pago
 FROM Nomina n
 JOIN Empleado emp ON n.ID_Empleado = emp.ID_Empleado;
 GO
 
--- Vista para acceso rápido a las justificaciones y sus estados
+-- Vista para acceso rï¿½pido a las justificaciones y sus estados
 CREATE VIEW VistaJustificacionesEstado AS
 SELECT j.Descripcion, j.Estado_Aprobacion, i.Descripcion AS Incidencia, i.Estado
 FROM Justificacion j
