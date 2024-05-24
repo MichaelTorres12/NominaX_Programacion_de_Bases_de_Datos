@@ -5,6 +5,8 @@ y ponen: npm i mssql
 y le dan enter
 */
 
+//import mssql from 'mssql'; //Esto es para cuando se usa model en el type.
+
 const mssql = require('mssql');
 
 // Aquí cambian los datos por los de sus credenciales
@@ -12,7 +14,7 @@ const connectionSettings = {
     server: "localhost",
     database: "NominaXDataBase",
     user: "sa",
-    password: "200802",
+    password: "210903",
     options: {
         encrypt: true, // Esto es para que encripte la conexión
         trustServerCertificate: true // Y esto es para que pueda creer en los certificados en conexión

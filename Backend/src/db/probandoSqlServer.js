@@ -7,7 +7,11 @@ pegar lo siguiente: "type": "module",
 una vez se ha probado, quitarlo y dejarse tal y como se encontró, es por problemas de lectura entre ES y CommonJS
 */
 
+<<<<<<< HEAD
+import { getConnection } from "./conexionDB.js";
+=======
 const { getConnection, mssql } = require("./conexionDB");
+>>>>>>> 95e0dc8aca001e7e97510424ff131da2e524a729
 
 // Aquí usamos un pool de conexiones
 const getEmpleados = async () => {
