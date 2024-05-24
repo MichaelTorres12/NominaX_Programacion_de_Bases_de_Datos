@@ -16,7 +16,7 @@ const Sidebar = () => {
     const isActive = (path) => location.pathname.includes(path);
 
     return (
-        <div className="sidebar w-[350px] pt-5 flex flex-col h-screen bg-white">
+        <div className="sidebar  pt-5 flex flex-col h-screen bg-white">
             <div className='h-40 w-full mb-6 flex flex-col items-center'>
                 <picture>
                     <img className='nominaxLogo mb-2' src={nominaxLogo} alt='Logo de Nominax'/>
