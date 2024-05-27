@@ -57,4 +57,14 @@ const actualizarEmpleado = async (id, nombres, apellido, tituloPuesto, direccion
     return resultado;
 }
 
-module.exports = { controlEmpleados, insertEmpleados, eliminatEmpleado, actualizarEmpleado };
+
+const obtenerEmpleado = async (id) => {
+    const pool = await getConnection();
+    const resultado = await pool.request()
+        .input('ID_Empleado', id)
+        .execute(`dbo.ObtenerEmpleadoDetalles`);
+    console.log(resultado);
+    return resultado;
+}
+
+module.exports = { controlEmpleados, insertEmpleados, eliminatEmpleado, actualizarEmpleado, obtenerEmpleado };
