@@ -72,3 +72,5 @@ exports.obtenerEmpleado = async (req, res) => {
         res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
     }
 }
+
+/* Se han realizado cambios */
