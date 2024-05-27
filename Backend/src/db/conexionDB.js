@@ -14,7 +14,7 @@ const connectionSettings = {
     server: "localhost",
     database: "NominaXDataBase",
     user: "sa",
-    password: "210903",
+    password: "200802",
     options: {
         encrypt: true, // Esto es para que encripte la conexión
         trustServerCertificate: true // Y esto es para que pueda creer en los certificados en conexión
