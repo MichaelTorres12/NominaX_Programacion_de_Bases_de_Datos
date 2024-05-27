@@ -58,3 +58,17 @@ exports.actualilzarEmpleado = async (req, res) => {
         res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
     }
 }
+
+exports.obtenerEmpleado = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const obtenerEmpleado = await empleado.obtenerEmpleado(id)
+        if (!obtenerEmpleado) {
+            return res.status(401).json({ mensaje: 'Hubo algun error' });
+        }else {
+            return res.status(200).json(obtenerEmpleado.recordsets[0][0]);
+        }
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error en el servidor', error: error.message });
+    }
+}
