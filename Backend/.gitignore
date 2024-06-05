@@ -41,9 +41,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-<<<<<<< EmilianoApisTres
-
-=======
 # Environment variables
->>>>>>> main
 .env
