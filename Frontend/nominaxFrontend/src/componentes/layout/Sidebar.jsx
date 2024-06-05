@@ -46,7 +46,7 @@ const Sidebar = () => {
             </ul>
     
             <div className='flex justify-center mt-auto mb-10'>
-                <button onClick={handleLogout} className="w-[70%] h-auto bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 rounded text-xl">
+                <button onClick={handleLogout} className="w-[70%] h-auto rounded-2xl bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 text-xl">
                     Cerrar Sesión
                 </button>
             </div>

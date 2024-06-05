@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Modal = ({ isOpen, onClose, children }) => {
     return (
         <Dialog open={isOpen} handler={onClose} size="lg">
-            <DialogHeader>Editar Empleado</DialogHeader>
+            <DialogHeader>Empleado</DialogHeader>
             <DialogBody divider>
                 {children}
             </DialogBody>
