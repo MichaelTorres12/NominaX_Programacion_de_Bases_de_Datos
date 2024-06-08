@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const empleados = require('../controladores/controladorEmpleado.js');
 const departamento = require('../controladores/controladorDepartamento.js');
+const equipo = require('../controladores/controladorEquipo.js');
+const asistencia = require('../controladores/controladorRegistroAsistencia.js');
 
 router.get('/empleados', empleados.controlEmpleado);
 router.get('/empleados/:id', empleados.obtenerEmpleado);
@@ -16,5 +18,15 @@ router.post('/departamento', departamento.insertDepartamento);
 router.delete('/departamento/:id', departamento.eliminarDepartamento)
 router.patch('/departamento/:id', departamento.actualilzarDepartamento)
 
+//EQUIPO
+router.get('/equipo', equipo.getEquipo);
+router.get('/equipo/:id', equipo.obtenerEquipo);
+router.post('/equipo', equipo.insertEquipo);
+router.delete('/equipo/:id', equipo.eliminarEquipo)
+router.patch('/equipo/:id', equipo.actualilzarEquipo)
+
+//Asistencias
+router.get('/asistencia', asistencia.getAsistencias);
+router.post('/asistencia', asistencia.insertAsistencia);
 
 module.exports = router;
