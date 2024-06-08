@@ -51,9 +51,9 @@ const Tabla = ({ onEdit }) => {
 
   return (
     <Card className="h-auto w-auto overflow-auto">
-      <div className="overflow-auto" style={{ maxHeight: '500px' }}>
+      <div className="overflow-auto" style={{ maxHeight: '600px' }}>
         <table className="w-full  table-auto text-left">
-          <thead>
+          <thead className="sticky top-0 z-10">
             <tr>
               {TABLE_HEAD.map((head) => (
                 <th key={head} className="border-b border-blue-gray-00 bg-blue-800 p-4">
@@ -160,3 +160,4 @@ Tabla.propTypes = {
 };
 
 export default Tabla;
+
