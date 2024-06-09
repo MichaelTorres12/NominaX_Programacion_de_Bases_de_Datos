@@ -1,59 +1,95 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import qs from 'qs';
-import { Input, Button } from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
 import PropTypes from 'prop-types';
+import Swal from 'sweetalert2';
 
-const EquipoForm = ({ onClose, equipoActual, obtenerEquipos }) => {
-    const [equipo, setEquipo] = useState({
-        Nombre: '',
-        Descripcion: '',
-        Departamento: ''
-    });
+const EquipoForm = ({ equipoActual, setEquipoActual, obtenerEquipos, setModalOpen }) => {
+    const [nombre, setNombre] = useState('');
+    const [descripcion, setDescripcion] = useState('');
+    const [idDepartamento, setIdDepartamento] = useState('');
 
     useEffect(() => {
         if (equipoActual) {
-            setEquipo(equipoActual);
+            setNombre(equipoActual.Nombre);
+            setDescripcion(equipoActual.Descripción);
+            setIdDepartamento(equipoActual.ID_Departamento.toString());
         }
     }, [equipoActual]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
         try {
-            const config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            };
-
-            if (equipo.ID) {
-                await axios.patch(`http://localhost:3000/api/equipo/${equipo.ID}`, qs.stringify(equipo), config);
+            if (equipoActual) {
+                // Actualizar equipo existente
+                await axios.patch(`http://localhost:3000/api/equipo/${equipoActual.ID}`, {
+                    nombres: nombre,
+                    descripcion,
+                    id_departamento: parseInt(idDepartamento, 10)
+                });
+                Swal.fire('Actualizado', 'Equipo actualizado correctamente', 'success');
             } else {
-                await axios.post('http://localhost:3000/api/equipo', qs.stringify(equipo), config);
+                // Crear nuevo equipo
+                await axios.post('http://localhost:3000/api/equipo', {
+                    nombres: nombre,
+                    descripcion,
+                    id_departamento: parseInt(idDepartamento, 10)
+                });
+                Swal.fire('Creado', 'Equipo creado correctamente', 'success');
             }
 
             obtenerEquipos();
-            onClose();
+            setModalOpen(false);
         } catch (error) {
             console.error('Error al guardar el equipo:', error);
+            Swal.fire('Error', 'Hubo un error al guardar el equipo. Por favor, intente nuevamente.', 'error');
         }
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4">
-            <Input label="Nombre" value={equipo.Nombre} onChange={(e) => setEquipo({ ...equipo, Nombre: e.target.value })} />
-            <Input label="Descripción" value={equipo.Descripcion} onChange={(e) => setEquipo({ ...equipo, Descripcion: e.target.value })} />
-            <Input label="Departamento" value={equipo.Departamento} onChange={(e) => setEquipo({ ...equipo, Departamento: e.target.value })} />
-            <Button type="submit">Guardar</Button>
+        <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+                <Input
+                    type="text"
+                    label="Nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="mb-4">
+                <Input
+                    type="text"
+                    label="Descripción"
+                    value={descripcion}
+                    onChange={(e) => setDescripcion(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="mb-4">
+                <Input
+                    type="text"
+                    label="ID del Departamento"
+                    value={idDepartamento}
+                    onChange={(e) => setIdDepartamento(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="flex justify-end">
+                <Button type="submit" color="green">
+                    Guardar
+                </Button>
+            </div>
         </form>
     );
 };
 
 EquipoForm.propTypes = {
-    onClose: PropTypes.func.isRequired,
     equipoActual: PropTypes.object,
+    setEquipoActual: PropTypes.func.isRequired,
     obtenerEquipos: PropTypes.func.isRequired,
+    setModalOpen: PropTypes.func.isRequired,
 };
 
 export default EquipoForm;

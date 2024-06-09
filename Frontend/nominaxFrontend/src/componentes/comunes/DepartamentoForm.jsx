@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Input } from "@material-tailwind/react";
 import PropTypes from 'prop-types';
